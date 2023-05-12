@@ -25,10 +25,10 @@ public class AviaSoulsTest {
         aviaSouls.add(ticket4);
         aviaSouls.add(ticket5);
 
-        Ticket[] tickets = {ticket1, ticket2, ticket3,ticket4,ticket5};
+        Ticket[] tickets = {ticket1, ticket2, ticket3, ticket4, ticket5};
         Arrays.sort(tickets);
 
-        Ticket[] expected = {ticket5, ticket4,ticket3,ticket2,ticket1};
+        Ticket[] expected = {ticket5, ticket4, ticket3, ticket2, ticket1};
         Ticket[] actual = tickets;
 
         Assertions.assertArrayEquals(expected, actual);
@@ -64,7 +64,7 @@ public class AviaSoulsTest {
         Ticket[] tickets = {ticket2, ticket1};
         Arrays.sort(tickets, ticketTimeComparator);
 
-        Ticket[] expected =  {ticket1, ticket2};
+        Ticket[] expected = {ticket1, ticket2};
         Ticket[] actual = tickets;
 
         Assertions.assertArrayEquals(expected, actual);
@@ -87,5 +87,43 @@ public class AviaSoulsTest {
 
         Assertions.assertArrayEquals(expected, actual);
 
+    }
+
+
+    @Test
+    public void shouldFindSomeTickets() {
+
+        aviaSouls.add(ticket1);
+        aviaSouls.add(ticket2);
+        aviaSouls.add(ticket3);
+        aviaSouls.add(ticket4);
+        aviaSouls.add(ticket5);
+
+
+        Ticket[] expected = {ticket1, ticket2, ticket3, ticket4, ticket5};
+        Ticket[] actual = aviaSouls.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    public void shouldFindOneTicket() {
+
+        aviaSouls.add(ticket1);
+
+        Ticket[] expected = {ticket1};
+        Ticket[] actual = aviaSouls.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindZeroTickets() {
+
+        Ticket[] expected = {};
+        Ticket[] actual = aviaSouls.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
